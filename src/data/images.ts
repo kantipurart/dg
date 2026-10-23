@@ -17,7 +17,7 @@ export interface ImageAsset {
 }
 
 /**
- * 14 100% unique, authentic photographs of Dream Garden Resort (Chapali Bhangal, Budhanilkantha)
+ * 18 100% unique, authentic photographs of Dream Garden Resort (Chapali Bhangal, Budhanilkantha)
  * pulled from Google Maps reviews, owner uploads, and @resortdreamgarden Instagram.
  * Every slot uses a distinct image file — zero duplicate src paths anywhere.
  */
@@ -34,27 +34,15 @@ export const INITIAL_IMAGE_ASSETS: Record<string, ImageAsset> = {
     aspectRatio: '16:9',
     sourceLabel: 'Garden & Lawn',
   },
-  instaCrispyBites: {
-    id: 'asset-insta-crispy-bites',
-    slotKey: 'instaCrispyBites',
-    title: 'Crispy Bites & Evening Platter',
-    nepaliTitle: 'साँझको क्रिस्पी खाजा',
-    category: 'Food & Menu',
-    src: '/assets/aistudio/image_e85f76e1.png',
-    alt: 'Crispy bites platter and fries served at Dream Garden Resort',
-    caption: 'Crispy evening platter with golden fries and house dip.',
-    aspectRatio: '4:3',
-    sourceLabel: 'Food & Menu',
-  },
   mustangMomoSekuwa: {
-    id: 'asset-tandoori-tikka-platter',
+    id: 'asset-mustang-momo-platter',
     slotKey: 'mustangMomoSekuwa',
-    title: 'Tandoori Chicken & Paneer Tikka',
-    nepaliTitle: 'तन्दुरी र टिक्का',
+    title: 'Mustang Mo:Mo Platter',
+    nepaliTitle: 'मुस्ताङ म:म',
     category: 'Food & Menu',
-    src: '/assets/images/gmaps/bhangal-2.jpg',
-    alt: 'Clay-oven Chicken and Paneer Tikka platter with mint chutney',
-    caption: 'Clay-oven roasted Tikka platter with fresh salad and mint chutney.',
+    src: '/assets/images/gmaps/bhangal-rev-17.jpg',
+    alt: 'Pan-crisped Mustang Mo:Mo platter served with two bowls of house timur achar at Dream Garden Resort',
+    caption: 'Crispy golden Mustang Mo:Mo platter served with house timur and sesame achar.',
     aspectRatio: '4:3',
     sourceLabel: 'Food & Menu',
   },
@@ -82,15 +70,27 @@ export const INITIAL_IMAGE_ASSETS: Record<string, ImageAsset> = {
     aspectRatio: '4:3',
     sourceLabel: 'Food & Menu',
   },
-  scannedMenuSheet: {
-    id: 'asset-scanned-menu-sheet',
-    slotKey: 'scannedMenuSheet',
-    title: 'Mo:Mo, Chowmein & Oven Pizza Menu',
-    nepaliTitle: 'मेनु कार्ड',
+  instaCrispyBites: {
+    id: 'asset-insta-crispy-bites',
+    slotKey: 'instaCrispyBites',
+    title: 'Crispy Bites & Evening Platter',
+    nepaliTitle: 'साँझको क्रिस्पी खाजा',
     category: 'Food & Menu',
-    src: '/assets/images/gmaps/bhangal-13.jpg',
-    alt: 'Dream Garden Resort menu sheet showing Mo:Mo, Chowmein, and Pizza',
-    caption: 'Mo:Mo, Chowmein, Fried Rice, and Oven Pizza menu card.',
+    src: '/assets/aistudio/image_e85f76e1.png',
+    alt: 'Crispy bites platter and fries served at Dream Garden Resort',
+    caption: 'Crispy evening platter with golden fries and house dip.',
+    aspectRatio: '4:3',
+    sourceLabel: 'Food & Menu',
+  },
+  ovenBakedPizza: {
+    id: 'asset-oven-baked-pizza',
+    slotKey: 'ovenBakedPizza',
+    title: 'Oven-Baked Mushroom & Pepper Pizza',
+    nepaliTitle: 'ओभन पिज्जा',
+    category: 'Food & Menu',
+    src: '/assets/images/gmaps/bhangal-rev-15.jpg',
+    alt: 'Freshly baked pizza with mozzarella cheese, mushrooms, and bell peppers on a wooden board at Dream Garden Resort',
+    caption: 'Oven-baked pizza topped with melted mozzarella, mushrooms, and bell peppers.',
     aspectRatio: '4:3',
     sourceLabel: 'Food & Menu',
   },
@@ -190,6 +190,66 @@ export const INITIAL_IMAGE_ASSETS: Record<string, ImageAsset> = {
     aspectRatio: '4:3',
     sourceLabel: 'Swings & Photo Spots',
   },
+  eveningBuildingLights: {
+    id: 'asset-evening-building-lights',
+    slotKey: 'eveningBuildingLights',
+    title: 'Illuminated Dining Hall at Night',
+    nepaliTitle: 'रात्रिकालीन रिसोर्ट',
+    category: 'Garden & Lawn',
+    src: '/assets/images/gmaps/bhangal-rev-14.jpg',
+    alt: 'Dream Garden Resort main brick building illuminated with warm string lights at night',
+    caption: 'Warm string lights above the main brick dining hall at night.',
+    aspectRatio: '4:3',
+    sourceLabel: 'Garden & Lawn',
+  },
+  eveningLawnLights: {
+    id: 'asset-evening-lawn-lights',
+    slotKey: 'eveningLawnLights',
+    title: 'Evening Lawn & String Lights',
+    nepaliTitle: 'साँझको बगैंचा',
+    category: 'Garden & Lawn',
+    src: '/assets/images/gmaps/bhangal-rev-16.jpg',
+    alt: 'Evening wicker lawn table under overhead string lights at Dream Garden Resort',
+    caption: 'Outdoor wicker table on the lawn under warm evening lights.',
+    aspectRatio: '4:3',
+    sourceLabel: 'Garden & Lawn',
+  },
+  freshFruitSalad: {
+    id: 'asset-fresh-fruit-salad',
+    slotKey: 'freshFruitSalad',
+    title: 'Fresh Fruit & Pomegranate Salad',
+    nepaliTitle: 'ताजा फलफूल सलाद',
+    category: 'Food & Menu',
+    src: '/assets/images/gmaps/bhangal-rev-18.jpg',
+    alt: 'Fresh creamy fruit and pomegranate salad served on crisp garden lettuce',
+    caption: 'Fresh fruit salad topped with pomegranate seeds and microgreens.',
+    aspectRatio: '4:3',
+    sourceLabel: 'Food & Menu',
+  },
+  shadedGardenSteps: {
+    id: 'asset-shaded-garden-steps',
+    slotKey: 'shadedGardenSteps',
+    title: 'Shaded Garden Steps & Canopy',
+    nepaliTitle: 'हरियाली सिँढी',
+    category: 'Garden & Lawn',
+    src: '/assets/images/gmaps/bhangal-rev-19.jpg',
+    alt: 'Rustic steps under green trees leading to the upper garden terrace at Dream Garden Resort',
+    caption: 'Tree-shaded garden steps leading up to the terrace.',
+    aspectRatio: '4:3',
+    sourceLabel: 'Garden & Lawn',
+  },
+  stoneCourtyardSteps: {
+    id: 'asset-stone-courtyard-steps',
+    slotKey: 'stoneCourtyardSteps',
+    title: 'Garden Stairway & Courtyard View',
+    nepaliTitle: 'गार्डेन आँगन',
+    category: 'Garden & Lawn',
+    src: '/assets/images/gmaps/bhangal-rev-20.jpg',
+    alt: 'Stone steps overlooking the paved courtyard at Dream Garden Resort',
+    caption: 'Garden steps overlooking the lower courtyard.',
+    aspectRatio: '4:3',
+    sourceLabel: 'Garden & Lawn',
+  },
 };
 
 export const GALLERY_CATEGORIES: GalleryCategory[] = [
@@ -197,64 +257,3 @@ export const GALLERY_CATEGORIES: GalleryCategory[] = [
   'Food & Menu',
   'Swings & Photo Spots',
 ];
-
-const STORAGE_KEY = 'dgr_bhangal_unique_photos_v6';
-
-export function loadImageAssets(): Record<string, ImageAsset> {
-  if (typeof window === 'undefined') {
-    return INITIAL_IMAGE_ASSETS;
-  }
-  try {
-    const raw = window.localStorage.getItem(STORAGE_KEY);
-    if (!raw) return INITIAL_IMAGE_ASSETS;
-    const overrides = JSON.parse(raw) as Record<string, Partial<ImageAsset>>;
-    const merged: Record<string, ImageAsset> = { ...INITIAL_IMAGE_ASSETS };
-    const usedSrcs = new Set<string>();
-
-    for (const key of Object.keys(merged)) {
-      const customSrc = overrides[key]?.src?.trim();
-      if (customSrc && !customSrc.endsWith('.svg') && !usedSrcs.has(customSrc)) {
-        merged[key] = {
-          ...merged[key],
-          ...overrides[key],
-        };
-      }
-      usedSrcs.add(merged[key].src);
-    }
-    return merged;
-  } catch {
-    return INITIAL_IMAGE_ASSETS;
-  }
-}
-
-export function saveImageOverride(
-  slotKey: string,
-  newSrc: string,
-  newCaption?: string
-): Record<string, ImageAsset> {
-  if (typeof window !== 'undefined') {
-    try {
-      const raw = window.localStorage.getItem(STORAGE_KEY);
-      const overrides = raw ? JSON.parse(raw) : {};
-      overrides[slotKey] = {
-        src: newSrc.trim(),
-        ...(newCaption ? { caption: newCaption.trim() } : {}),
-      };
-      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(overrides));
-    } catch {
-      // Ignore storage errors
-    }
-  }
-  return loadImageAssets();
-}
-
-export function resetImageOverrides(): Record<string, ImageAsset> {
-  if (typeof window !== 'undefined') {
-    try {
-      window.localStorage.removeItem(STORAGE_KEY);
-    } catch {
-      // Ignore
-    }
-  }
-  return INITIAL_IMAGE_ASSETS;
-}

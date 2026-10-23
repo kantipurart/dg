@@ -1,5 +1,16 @@
 import React, { useState } from 'react';
-import { ArrowRight, MapPin, Phone, ExternalLink, Plus, Check, Utensils } from 'lucide-react';
+import {
+  ArrowRight,
+  MapPin,
+  Phone,
+  ExternalLink,
+  Plus,
+  Check,
+  Utensils,
+  Star,
+  Instagram,
+  Facebook,
+} from 'lucide-react';
 import { BUSINESS_CONFIG } from '../data/businessConfig';
 import { ImageAsset } from '../data/images';
 import { MENU_CATEGORIES, MENU_ITEMS, MenuCategoryId, MenuItem } from '../data/menuData';
@@ -91,14 +102,36 @@ export const HomePage: React.FC<HomePageProps> = ({
               </button>
             </div>
 
-            <div className="mt-10 pt-2">
+            <div className="mt-10 flex flex-wrap items-center gap-6 pt-2">
               <GoodFoodBrighterMoodsBadge />
+
+              <div className="flex items-center gap-4 text-xs text-[#9BA39E]">
+                <a
+                  href={BUSINESS_CONFIG.location.instagramUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 transition-colors hover:text-[#44B649]"
+                >
+                  <Instagram className="h-3.5 w-3.5 text-[#44B649]" aria-hidden="true" />
+                  <span>{BUSINESS_CONFIG.location.instagramHandle}</span>
+                </a>
+                <span aria-hidden="true" className="text-[#3A463E]">·</span>
+                <a
+                  href={BUSINESS_CONFIG.location.facebookUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 transition-colors hover:text-[#44B649]"
+                >
+                  <Facebook className="h-3.5 w-3.5 text-[#44B649]" aria-hidden="true" />
+                  <span>Facebook</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Minimal Contact Strip */}
+      {/* Minimal Contact & Social Strip */}
       <section className="border-y border-[#243028] bg-[#131915] py-3.5 text-xs text-[#D2DAD4]">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
@@ -112,6 +145,24 @@ export const HomePage: React.FC<HomePageProps> = ({
               className="font-mono-num font-bold text-[#44B649] hover:underline"
             >
               {BUSINESS_CONFIG.contact.phoneDisplay} / {BUSINESS_CONFIG.contact.landlineDisplay}
+            </a>
+            <span aria-hidden="true" className="text-[#56635A]">·</span>
+            <a
+              href={BUSINESS_CONFIG.location.instagramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#C8D0CA] transition-colors hover:text-[#44B649]"
+            >
+              Instagram
+            </a>
+            <span aria-hidden="true" className="text-[#56635A]">·</span>
+            <a
+              href={BUSINESS_CONFIG.location.facebookUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#C8D0CA] transition-colors hover:text-[#44B649]"
+            >
+              Facebook
             </a>
             <span aria-hidden="true" className="text-[#56635A]">·</span>
             <a
@@ -150,7 +201,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             </button>
           </div>
 
-          {/* 3 Food Photos */}
+          {/* Top 3 Food Photos (Including Mustang Mo:Mo Platter from Google Maps) */}
           <div className="mt-8 grid grid-cols-1 gap-5 md:grid-cols-3">
             <div className="border border-[#243028] bg-[#131915] p-2.5">
               <EditorialImage
@@ -250,7 +301,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             })}
           </div>
 
-          {/* 2 Featured Menu / Food Photos with Single Line Below */}
+          {/* 2 Featured Food Photos with Single Line Below */}
           <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-2">
             <div className="border border-[#243028] bg-[#131915] p-3">
               <EditorialImage
@@ -264,11 +315,11 @@ export const HomePage: React.FC<HomePageProps> = ({
 
             <div className="border border-[#243028] bg-[#131915] p-3">
               <EditorialImage
-                asset={imageAssets.scannedMenuSheet}
-                onClick={() => onOpenLightbox('scannedMenuSheet')}
+                asset={imageAssets.ovenBakedPizza}
+                onClick={() => onOpenLightbox('ovenBakedPizza')}
               />
               <h3 className="mt-3 px-1 font-display text-xl font-bold text-white">
-                {imageAssets.scannedMenuSheet.title}
+                {imageAssets.ovenBakedPizza.title}
               </h3>
             </div>
           </div>
@@ -318,7 +369,136 @@ export const HomePage: React.FC<HomePageProps> = ({
         </div>
       </section>
 
-      {/* 4. Location & Map */}
+      {/* 4. Google Reviews Section — Minimal Glass UI with Photos */}
+      <section className="relative overflow-hidden border-b border-[#243028] bg-[#0D110E] py-14 sm:py-20">
+        {/* Subtle ambient green glow behind glass cards */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute left-1/2 top-1/2 h-80 w-80 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#44B649]/10 blur-3xl"
+        />
+
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+            <div>
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3.5 py-1.5 backdrop-blur-md">
+                <div className="flex items-center gap-0.5 text-[#FBBF24]">
+                  {Array.from({ length: 5 }).map((_, idx) => (
+                    <Star
+                      key={idx}
+                      className={`h-3.5 w-3.5 ${
+                        idx < 4 ? 'fill-[#FBBF24] text-[#FBBF24]' : 'fill-[#FBBF24]/40 text-[#FBBF24]'
+                      }`}
+                      aria-hidden="true"
+                    />
+                  ))}
+                </div>
+                <span className="font-mono-num text-xs font-bold text-white">
+                  {BUSINESS_CONFIG.ratingsAndPricing.googleRating}
+                </span>
+                <span className="text-xs text-[#9BA39E]">
+                  · {BUSINESS_CONFIG.ratingsAndPricing.reviewCount} Google Reviews
+                </span>
+              </div>
+
+              <h2 className="mt-3 font-display text-3xl font-bold sm:text-5xl">
+                <span className="text-white">Guest </span>
+                <span className="text-[#44B649]">Reviews.</span>
+              </h2>
+              <div className="mt-3 h-1 w-12 bg-[#44B649]" aria-hidden="true" />
+            </div>
+
+            <a
+              href={BUSINESS_CONFIG.location.googleMapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.05] px-5 py-2.5 text-xs font-bold tracking-wider text-white uppercase backdrop-blur-md transition-colors hover:border-[#44B649] hover:text-[#44B649] whitespace-nowrap shrink-0 self-start sm:self-auto"
+            >
+              <span>Read on Google Maps</span>
+              <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
+            </a>
+          </div>
+
+          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
+            {BUSINESS_CONFIG.googleReviews.map((review) => {
+              const reviewPhotos = review.photoSlotKeys
+                .map((key) => imageAssets[key])
+                .filter(Boolean);
+
+              return (
+                <article
+                  key={review.id}
+                  className="flex flex-col justify-between rounded-2xl border border-white/10 bg-white/[0.04] p-6 shadow-xl backdrop-blur-md transition-colors hover:border-[#44B649]/50"
+                >
+                  <div>
+                    <div className="flex items-start justify-between gap-3">
+                      <div className="flex items-center gap-3">
+                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#44B649]/40 bg-[#44B649]/15 font-display text-base font-bold text-[#44B649]">
+                          {review.author.charAt(0).toUpperCase()}
+                        </div>
+                        <div>
+                          <h3 className="text-sm font-bold text-white">{review.author}</h3>
+                          <p className="text-[11px] text-[#9BA39E]">
+                            {review.badge} · {review.timeAgo}
+                          </p>
+                        </div>
+                      </div>
+
+                      <div
+                        className="flex items-center gap-0.5 text-[#FBBF24]"
+                        aria-label={`${review.rating} out of 5 stars`}
+                      >
+                        {Array.from({ length: 5 }).map((_, idx) => (
+                          <Star
+                            key={idx}
+                            className={`h-3.5 w-3.5 ${
+                              idx < review.rating
+                                ? 'fill-[#FBBF24] text-[#FBBF24]'
+                                : 'text-[#3A463E]'
+                            }`}
+                            aria-hidden="true"
+                          />
+                        ))}
+                      </div>
+                    </div>
+
+                    <p className="mt-4 text-sm leading-relaxed text-[#D7DFD9]">
+                      &ldquo;{review.text}&rdquo;
+                    </p>
+                  </div>
+
+                  {reviewPhotos.length > 0 && (
+                    <div
+                      className={`mt-5 grid gap-2.5 pt-3 border-t border-white/10 ${
+                        reviewPhotos.length > 1 ? 'grid-cols-2' : 'grid-cols-1'
+                      }`}
+                    >
+                      {reviewPhotos.map((photoAsset) => (
+                        <button
+                          key={photoAsset.id}
+                          type="button"
+                          onClick={() => onOpenLightbox(photoAsset.slotKey)}
+                          aria-label={`View photo: ${photoAsset.title}`}
+                          className="group relative aspect-[16/10] w-full overflow-hidden rounded-lg border border-white/10 bg-[#131915]"
+                        >
+                          <img
+                            src={photoAsset.src}
+                            alt={photoAsset.alt}
+                            loading="lazy"
+                            referrerPolicy="no-referrer"
+                            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          />
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Location & Map */}
       <section className="bg-[#0D110E] py-14 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-stretch">
@@ -342,6 +522,28 @@ export const HomePage: React.FC<HomePageProps> = ({
                       {BUSINESS_CONFIG.contact.phoneDisplay}
                     </a>{' '}
                     / {BUSINESS_CONFIG.contact.landlineDisplay}
+                  </p>
+                  <p className="flex flex-wrap items-center gap-3 pt-1 text-xs text-[#9BA39E]">
+                    <span>Follow us:</span>
+                    <a
+                      href={BUSINESS_CONFIG.location.instagramUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 font-medium text-[#D2DAD4] hover:text-[#44B649]"
+                    >
+                      <Instagram className="h-3.5 w-3.5 text-[#44B649]" aria-hidden="true" />
+                      <span>{BUSINESS_CONFIG.location.instagramHandle}</span>
+                    </a>
+                    <span aria-hidden="true">·</span>
+                    <a
+                      href={BUSINESS_CONFIG.location.facebookUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 font-medium text-[#D2DAD4] hover:text-[#44B649]"
+                    >
+                      <Facebook className="h-3.5 w-3.5 text-[#44B649]" aria-hidden="true" />
+                      <span>Dream Garden Resort</span>
+                    </a>
                   </p>
                 </div>
               </div>

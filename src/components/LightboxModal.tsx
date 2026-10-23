@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { X, ChevronLeft, ChevronRight, Image as ImageIcon } from 'lucide-react';
+import React, { useEffect } from 'react';
+import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { ImageAsset } from '../data/images';
 import { EditorialImage } from './EditorialImage';
 
@@ -8,7 +8,6 @@ interface LightboxModalProps {
   activeIndex: number | null;
   onClose: () => void;
   onSelectIndex: (index: number) => void;
-  onSaveCustomUrl?: (slotKey: string, url: string) => void;
 }
 
 export const LightboxModal: React.FC<LightboxModalProps> = ({
@@ -16,16 +15,7 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({
   activeIndex,
   onClose,
   onSelectIndex,
-  onSaveCustomUrl,
 }) => {
-  const [showReplaceInput, setShowReplaceInput] = useState(false);
-  const [customUrlInput, setCustomUrlInput] = useState('');
-
-  useEffect(() => {
-    setShowReplaceInput(false);
-    setCustomUrlInput('');
-  }, [activeIndex]);
-
   useEffect(() => {
     if (activeIndex === null) return;
 
@@ -47,13 +37,6 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({
 
   const currentAsset = assets[activeIndex];
 
-  const handleApplyUrl = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!customUrlInput.trim() || !onSaveCustomUrl) return;
-    onSaveCustomUrl(currentAsset.slotKey, customUrlInput.trim());
-    setShowReplaceInput(false);
-  };
-
   return (
     <div
       role="dialog"
@@ -71,54 +54,15 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({
               {activeIndex + 1} / {assets.length}
             </span>
           </div>
-          <div className="flex items-center gap-3">
-            {onSaveCustomUrl && (
-              <button
-                type="button"
-                onClick={() => setShowReplaceInput((prev) => !prev)}
-                className="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-semibold text-[#44B649] hover:text-white"
-              >
-                <ImageIcon className="h-3.5 w-3.5" aria-hidden="true" />
-                <span>Paste Facebook / Maps Photo Link</span>
-              </button>
-            )}
-            <button
-              type="button"
-              onClick={onClose}
-              aria-label="Close lightbox"
-              className="inline-flex h-8 w-8 items-center justify-center text-[#C8D0CA] hover:text-white"
-            >
-              <X className="h-5 w-5" />
-            </button>
-          </div>
-        </div>
-
-        {/* Optional Facebook/Maps Photo Link Form */}
-        {showReplaceInput && (
-          <form
-            onSubmit={handleApplyUrl}
-            className="flex flex-col gap-2 border-b border-[#243028] bg-[#0D110E] px-5 py-3 sm:flex-row sm:items-center"
+          <button
+            type="button"
+            onClick={onClose}
+            aria-label="Close lightbox"
+            className="inline-flex h-8 w-8 items-center justify-center text-[#C8D0CA] hover:text-white"
           >
-            <label htmlFor="custom-photo-url" className="text-xs text-[#C8D0CA] shrink-0">
-              Facebook / Google Maps Image URL:
-            </label>
-            <input
-              id="custom-photo-url"
-              type="url"
-              required
-              placeholder="Paste image address from Facebook or Google Maps..."
-              value={customUrlInput}
-              onChange={(e) => setCustomUrlInput(e.target.value)}
-              className="flex-1 border border-[#2B382F] bg-[#131915] px-3 py-1.5 text-xs text-white placeholder-[#7A857E] focus:border-[#44B649] focus:outline-none"
-            />
-            <button
-              type="submit"
-              className="rounded-full bg-[#44B649] px-4 py-1.5 text-xs font-bold text-white uppercase hover:bg-[#3CA341] whitespace-nowrap shrink-0"
-            >
-              Use This Photo
-            </button>
-          </form>
-        )}
+            <X className="h-5 w-5" />
+          </button>
+        </div>
 
         {/* Main Image Viewport */}
         <div className="relative flex flex-1 items-center justify-center bg-[#0D110E] p-2 sm:p-6">

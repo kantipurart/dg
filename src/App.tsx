@@ -7,17 +7,11 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { Navbar, PageId } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { LightboxModal } from './components/LightboxModal';
-import { OwnerGuideModal } from './components/OwnerGuideModal';
 import { HomePage } from './pages/HomePage';
 import { MenuPage } from './pages/MenuPage';
 import { GalleryPage } from './pages/GalleryPage';
 import { ContactPage, SavedInquiry } from './pages/ContactPage';
-import {
-  ImageAsset,
-  loadImageAssets,
-  saveImageOverride,
-  resetImageOverrides,
-} from './data/images';
+import { INITIAL_IMAGE_ASSETS, ImageAsset } from './data/images';
 import { MenuItem } from './data/menuData';
 import { ShortlistEntry } from './utils/menuLogic';
 
@@ -41,13 +35,11 @@ function getInitialPage(): PageId {
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<PageId>(getInitialPage);
-  const [imageAssets, setImageAssets] = useState<Record<string, ImageAsset>>(loadImageAssets);
   const [shortlist, setShortlist] = useState<ShortlistEntry[]>([]);
   const [savedInquiries, setSavedInquiries] = useState<SavedInquiry[]>([]);
 
   const [lightboxList, setLightboxList] = useState<ImageAsset[]>([]);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
-  const [ownerGuideOpen, setOwnerGuideOpen] = useState(false);
 
   useEffect(() => {
     const titles: Record<PageId, string> = {
@@ -88,7 +80,7 @@ export default function App() {
   };
 
   const handleOpenLightboxByKey = (slotKey: string) => {
-    const allList = Object.values(imageAssets);
+    const allList = Object.values(INITIAL_IMAGE_ASSETS);
     const idx = allList.findIndex((a) => a.slotKey === slotKey);
     if (idx !== -1) {
       setLightboxList(allList);
@@ -99,22 +91,6 @@ export default function App() {
   const handleOpenLightboxByIndex = (index: number, list: ImageAsset[]) => {
     setLightboxList(list);
     setLightboxIndex(index);
-  };
-
-  const handleUpdateImage = (slotKey: string, newUrl: string) => {
-    const updated = saveImageOverride(slotKey, newUrl);
-    setImageAssets(updated);
-    if (lightboxIndex !== null) {
-      setLightboxList(Object.values(updated));
-    }
-  };
-
-  const handleResetImages = () => {
-    const reset = resetImageOverrides();
-    setImageAssets(reset);
-    if (lightboxIndex !== null) {
-      setLightboxList(Object.values(reset));
-    }
   };
 
   return (
@@ -128,7 +104,7 @@ export default function App() {
       <main className="flex-1">
         {currentPage === 'home' && (
           <HomePage
-            imageAssets={imageAssets}
+            imageAssets={INITIAL_IMAGE_ASSETS}
             onNavigate={setCurrentPage}
             onOpenLightbox={handleOpenLightboxByKey}
             onAddToShortlist={handleAddToShortlist}
@@ -148,9 +124,8 @@ export default function App() {
 
         {currentPage === 'gallery' && (
           <GalleryPage
-            imageAssets={imageAssets}
+            imageAssets={INITIAL_IMAGE_ASSETS}
             onOpenLightboxByIndex={handleOpenLightboxByIndex}
-            onOpenOwnerGuide={() => setOwnerGuideOpen(true)}
           />
         )}
 
@@ -165,25 +140,13 @@ export default function App() {
         )}
       </main>
 
-      <Footer
-        onNavigate={setCurrentPage}
-        onOpenOwnerGuide={() => setOwnerGuideOpen(true)}
-      />
+      <Footer onNavigate={setCurrentPage} />
 
       <LightboxModal
         assets={lightboxList}
         activeIndex={lightboxIndex}
         onClose={() => setLightboxIndex(null)}
         onSelectIndex={(idx) => setLightboxIndex(idx)}
-        onSaveCustomUrl={handleUpdateImage}
-      />
-
-      <OwnerGuideModal
-        isOpen={ownerGuideOpen}
-        onClose={() => setOwnerGuideOpen(false)}
-        imageAssets={imageAssets}
-        onUpdateImage={handleUpdateImage}
-        onResetImages={handleResetImages}
       />
     </div>
   );

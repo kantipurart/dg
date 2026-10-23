@@ -6,6 +6,16 @@ export interface LocalHighlightSpot {
   imageSlotKey: string;
 }
 
+export interface GoogleReviewItem {
+  id: string;
+  author: string;
+  badge: string;
+  rating: number;
+  timeAgo: string;
+  text: string;
+  photoSlotKeys: string[];
+}
+
 export const BUSINESS_CONFIG = {
   englishName: 'Dream Garden Resort',
   nepaliName: 'ड्रीम गार्डेन रिसोर्ट',
@@ -52,6 +62,35 @@ export const BUSINESS_CONFIG = {
     reportedStatus: 'Open Daily · Garden Dining, Takeaway & Family Gatherings',
     verificationNotice: 'Call 981-5321221 or 01-4376456 for table bookings or group orders.',
   },
+  googleReviews: [
+    {
+      id: 'rev-dikshya',
+      author: 'Dikshya Adhikari',
+      badge: 'Local Guide · 77 reviews',
+      rating: 5,
+      timeAgo: 'a year ago',
+      text: 'We went for dinner & the food was very delicious except for the biryani, other than that everything we ordered was yum. Also the place is very spacious & the staffs were polite & friendly. Good place for gathering & different occasions.',
+      photoSlotKeys: ['eveningBuildingLights', 'eveningLawnLights'],
+    },
+    {
+      id: 'rev-pratiksha',
+      author: 'Pratiksha Rai',
+      badge: '10 reviews',
+      rating: 4,
+      timeAgo: '4 months ago',
+      text: "Honestly staffs were very nice and so the atmosphere...it is a very clean place and about the food if you are confuse you can ask the staff they will suggest you the best food and it is good, it's great... satisfied 🙂",
+      photoSlotKeys: ['shadedGardenSteps'],
+    },
+    {
+      id: 'rev-nawa',
+      author: 'Nawa Pandhak Limbu',
+      badge: '6 reviews',
+      rating: 4,
+      timeAgo: 'a year ago',
+      text: 'The food was yummy, but the only bit that i did not enjoy was the wait time. I would just advise you to order when the servers bring you the menu or look through the menu before you visit the place. I do recommend the sadheko momo 😋. The ambience is beautiful as night falls.',
+      photoSlotKeys: ['freshFruitSalad'],
+    },
+  ] as GoogleReviewItem[],
   localHighlights: [
     {
       id: 'spot-wicker-lawn',

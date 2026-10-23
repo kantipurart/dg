@@ -1,15 +1,14 @@
 import React from 'react';
-import { Phone, MapPin, ExternalLink, Camera, Mail } from 'lucide-react';
+import { Phone, MapPin, ExternalLink, Mail } from 'lucide-react';
 import { BUSINESS_CONFIG } from '../data/businessConfig';
 import { PageId } from './Navbar';
 import { DreamGardenLogo, GoodFoodBrighterMoodsBadge } from './DreamGardenLogo';
 
 interface FooterProps {
   onNavigate: (page: PageId) => void;
-  onOpenOwnerGuide: () => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenOwnerGuide }) => {
+export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   const handleNav = (page: PageId) => {
     onNavigate(page);
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -128,18 +127,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenOwnerGuide }) 
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col items-start justify-between gap-4 border-t border-[#243028] pt-6 text-xs text-[#8E9396] sm:flex-row sm:items-center">
+        <div className="mt-10 border-t border-[#243028] pt-6 text-xs text-[#8E9396]">
           <p>
             © {new Date().getFullYear()} Dream Garden Resort · Chapali Bhangal, Budhanilkantha.
           </p>
-          <button
-            type="button"
-            onClick={onOpenOwnerGuide}
-            className="inline-flex items-center gap-1.5 text-xs text-[#B4BCB6] hover:text-white"
-          >
-            <Camera className="h-3.5 w-3.5 text-[#44B649]" aria-hidden="true" />
-            <span>Replace Photos</span>
-          </button>
         </div>
       </div>
     </footer>
