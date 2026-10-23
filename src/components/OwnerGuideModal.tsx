@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { X, RotateCcw, Check, ExternalLink } from 'lucide-react';
 import { BUSINESS_CONFIG } from '../data/businessConfig';
 import { ImageAsset } from '../data/images';
-import { DreamGardenWordmark } from './DreamGardenLogo';
 
 interface OwnerGuideModalProps {
   isOpen: boolean;
@@ -38,17 +37,17 @@ export const OwnerGuideModal: React.FC<OwnerGuideModalProps> = ({
     <div
       role="dialog"
       aria-modal="true"
-      aria-label="Import Facebook and Google Maps Photos"
+      aria-label="Replace Photo"
       className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-4 sm:p-6"
     >
       <div className="flex max-h-[90vh] w-full max-w-2xl flex-col overflow-hidden border border-[#243028] bg-[#131915] text-[#F4F7F4] shadow-2xl">
         <div className="flex items-center justify-between border-b border-[#243028] bg-[#0D110E] px-6 py-4">
           <div>
             <h2 className="font-display text-2xl font-bold text-white">
-              Import Google Maps & Instagram Photos
+              Replace Photo
             </h2>
             <p className="text-xs text-[#9BA39E]">
-              <DreamGardenWordmark showResort /> — Chapali Bhangal, Budhanilkantha
+              Dream Garden Resort — Chapali Bhangal, Budhanilkantha
             </p>
           </div>
           <button

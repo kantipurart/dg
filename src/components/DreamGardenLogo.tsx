@@ -5,23 +5,13 @@ interface DreamGardenLogoProps {
   size?: 'sm' | 'md' | 'lg';
   showTagline?: boolean;
   showPvtLtd?: boolean;
-  highlighted?: boolean;
 }
 
-/**
- * Drawn directly from the official @resortdreamgarden Instagram post & printed menu branding,
- * with enhanced luminance so "DreamGarden" stands out crisply on dark backgrounds:
- * - "Dream" in bright warm silver-white (#EEF3EF)
- * - "garden" in signature vibrant leaf green (#44B649) with a subtle botanical glow
- * - Twin veined leaves sprouting above "g" with a sweeping green arch over "arden"
- * - Optional "resort pvt. ltd." sub-label under "den"
- */
 export const DreamGardenLogo: React.FC<DreamGardenLogoProps> = ({
   className = '',
   size = 'md',
   showTagline = false,
   showPvtLtd = true,
-  highlighted = false,
 }) => {
   const dimensions =
     size === 'lg'
@@ -31,18 +21,12 @@ export const DreamGardenLogo: React.FC<DreamGardenLogoProps> = ({
         : 'h-11 sm:h-12';
 
   return (
-    <div
-      className={`inline-flex flex-col select-none transition-transform duration-200 ${
-        highlighted
-          ? 'rounded-xl border border-[#44B649]/35 bg-[#141D17]/90 px-3.5 py-1.5 shadow-[0_0_24px_rgba(68,182,73,0.16)]'
-          : ''
-      } ${className}`}
-    >
+    <div className={`inline-flex flex-col select-none ${className}`}>
       <svg
         viewBox="0 0 336 92"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className={`${dimensions} w-auto overflow-visible drop-shadow-[0_2px_10px_rgba(68,182,73,0.22)]`}
+        className={`${dimensions} w-auto overflow-visible`}
         role="img"
         aria-label="Dream Garden Resort Logo"
       >
@@ -71,7 +55,7 @@ export const DreamGardenLogo: React.FC<DreamGardenLogoProps> = ({
           strokeLinecap="round"
         />
 
-        {/* Small lower-left leaf accent as in official menu */}
+        {/* Small lower-left leaf accent */}
         <path
           d="M119 31C124 29 132 31 136 37C130 39 123 37 119 31Z"
           fill="#44B649"
@@ -83,11 +67,11 @@ export const DreamGardenLogo: React.FC<DreamGardenLogoProps> = ({
           fill="#44B649"
         />
 
-        {/* "Dream" highlighted in luminous warm off-white (#EEF3EF) */}
+        {/* "Dream" slightly highlighted in crisp warm silver-white */}
         <text
           x="2"
           y="68"
-          fill="#EEF3EF"
+          fill="#DCE2DE"
           fontFamily="'Plus Jakarta Sans', sans-serif"
           fontWeight="800"
           fontSize="42"
@@ -96,7 +80,7 @@ export const DreamGardenLogo: React.FC<DreamGardenLogoProps> = ({
           Dream
         </text>
 
-        {/* "garden" in signature vibrant leaf green (#44B649) */}
+        {/* "garden" in signature leaf green (#44B649) */}
         <text
           x="136"
           y="68"
@@ -109,12 +93,11 @@ export const DreamGardenLogo: React.FC<DreamGardenLogoProps> = ({
           garden
         </text>
 
-        {/* "resort pvt.ltd." sub-label from official menu & signage */}
         {showPvtLtd && (
           <text
-            x="234"
+            x="236"
             y="84"
-            fill="#C4CEC7"
+            fill="#A8B2AC"
             fontFamily="'Plus Jakarta Sans', sans-serif"
             fontWeight="600"
             fontSize="11.5"
@@ -126,32 +109,14 @@ export const DreamGardenLogo: React.FC<DreamGardenLogoProps> = ({
       </svg>
 
       {showTagline && (
-        <span className="mt-1 flex items-center gap-2 text-[10px] font-semibold tracking-[0.22em] text-[#D0D8D2] uppercase">
+        <span className="mt-0.5 flex items-center gap-2 text-[10px] font-medium tracking-[0.22em] text-[#B8BEB9] uppercase">
           <span className="inline-block h-[2px] w-5 bg-[#44B649]" />
-          <span>Chapali Bhangal · Budhanilkantha</span>
+          <span>Budhanilkantha · Kathmandu</span>
         </span>
       )}
     </div>
   );
 };
-
-/**
- * Highlighted inline "DreamGarden" wordmark for headings and editorial callouts
- */
-export const DreamGardenWordmark: React.FC<{
-  showResort?: boolean;
-  className?: string;
-}> = ({ showResort = false, className = '' }) => (
-  <span
-    className={`inline-flex items-baseline font-sans font-extrabold tracking-tight ${className}`}
-  >
-    <span className="text-[#F4F7F4]">Dream</span>
-    <span className="text-[#44B649] underline decoration-[#44B649]/60 decoration-2 underline-offset-4">
-      Garden
-    </span>
-    {showResort && <span className="ml-1.5 font-semibold text-[#D2DAD4]">Resort</span>}
-  </span>
-);
 
 export const MoreGoodDaysBadge: React.FC<{ className?: string }> = ({ className = '' }) => (
   <div className={`inline-flex items-center gap-2.5 select-none ${className}`}>

@@ -148,15 +148,11 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({
           )}
         </div>
 
-        {/* Concise Bilingual Caption */}
+        {/* Single-line Caption */}
         <div className="border-t border-[#243028] bg-[#131915] px-5 py-3.5">
-          <div className="flex flex-wrap items-baseline justify-between gap-2">
-            <h3 className="font-display text-xl font-bold text-[#F4F7F4]">
-              {currentAsset.title} · <span className="text-[#44B649]" lang="ne">{currentAsset.nepaliTitle}</span>
-            </h3>
-            <span className="text-xs font-semibold text-[#44B649]">{currentAsset.sourceLabel}</span>
-          </div>
-          <p className="mt-1 text-xs text-[#9BA39E]">{currentAsset.caption}</p>
+          <h3 className="font-display text-xl font-bold text-[#F4F7F4]">
+            {currentAsset.title}
+          </h3>
         </div>
       </div>
     </div>

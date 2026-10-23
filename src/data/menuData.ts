@@ -35,51 +35,51 @@ export interface MenuItem {
 export const MENU_CATEGORIES: MenuCategoryMeta[] = [
   {
     id: 'nepali-khaja-sekuwa',
-    title: 'Mo:Mo, Chowmein, Sekuwa & Chhoila',
-    nepaliTitle: 'म:म, चाउमिन, सेकुवा र छोइला',
+    title: 'Mo:Mo, Chowmein & Sekuwa',
+    nepaliTitle: 'म:म, चाउमिन र सेकुवा',
     shortTitle: 'Mo:Mo & Sekuwa',
-    subtitle: 'Printed Menu Mo:Mos (Steam/Kothy/Jhol/Chilly), Chowmein, Mustang Mo:Mo & Sekuwa.',
+    subtitle: 'Steamed, Kothy, Jhol & Mustang Mo:Mo, Chowmein, and charcoal Sekuwa.',
   },
   {
     id: 'nepali-khana-curries',
-    title: 'Nepali Khana Sets, Curries & Naan',
-    nepaliTitle: 'नेपाली खाना सेट, करी र नान',
+    title: 'Nepali Khana Sets & Curries',
+    nepaliTitle: 'नेपाली खाना सेट र करी',
     shortTitle: 'Khana Sets & Curry',
-    subtitle: 'Traditional Nepali Khana Sets, Handi Curries, Basmati Rice & Tandoori Naan.',
+    subtitle: 'Traditional Nepali Khana Sets, curries, rice, and Tandoori Naan.',
   },
   {
     id: 'tandoori-sizzler-grill',
-    title: 'Tandoori, Sizzlers, Trout & Crispy Bites',
-    nepaliTitle: 'तन्दुरी, सिजलर, ट्राउट माछा र क्रिस्पी खाजा',
-    shortTitle: 'Tandoori & Crispy Bites',
-    subtitle: 'Clay-oven Tandoori, Paneer Tikka, Sizzlers, Rainbow Trout & Evening Crispy Bites.',
+    title: 'Tandoori, Sizzlers & Grill',
+    nepaliTitle: 'तन्दुरी र सिजलर',
+    shortTitle: 'Tandoori & Grill',
+    subtitle: 'Clay-oven Tandoori, Paneer Tikka, Sizzlers, Trout, and crispy bites.',
   },
   {
     id: 'pizza-burgers-pasta',
-    title: 'Pizza From the Oven, Burgers & Pasta',
-    nepaliTitle: 'ओभन पिज्जा, बर्गर र पास्ता',
-    shortTitle: 'Oven Pizza & Burgers',
-    subtitle: 'Dream Garden Special Pizza, Pepperoni, Smoked Chicken, Margherita, Burgers & Pasta.',
+    title: 'Oven Pizza, Burgers & Pasta',
+    nepaliTitle: 'पिज्जा र बर्गर',
+    shortTitle: 'Pizza & Burgers',
+    subtitle: 'Oven-baked pizzas, club sandwiches, burgers, and pasta.',
   },
   {
     id: 'lassi-coffee-desserts',
-    title: 'Special Lassi, Coffee & Sikarni',
-    nepaliTitle: 'स्पेसल लस्सी, कफी र सिकर्नी',
-    shortTitle: 'Lassi, Coffee & Sweets',
-    subtitle: 'Dream Garden Special Lassi, House Sikarni, Cappuccino, Cold Coffee & Tea.',
+    title: 'Lassi, Coffee & Sweets',
+    nepaliTitle: 'लस्सी र कफी',
+    shortTitle: 'Lassi & Coffee',
+    subtitle: 'Special Lassi, Sikarni, coffee, lemonade, and tea.',
   },
   {
     id: 'cocktails-bar',
     title: 'Cocktails (18+)',
-    nepaliTitle: 'ककटेल बार (१८+)',
+    nepaliTitle: 'ककटेल (१८+)',
     shortTitle: 'Cocktails (18+)',
-    subtitle: 'Google Maps bar menu cocktails with verified NPR prices.',
+    subtitle: 'Signature house cocktails and classics.',
     isAlcoholic: true,
   },
 ];
 
 export const MENU_ITEMS: MenuItem[] = [
-  // 1. Mo:Mo, Chowmein, Sekuwa & Chhoila (Printed Menu Card + Google Maps verified prices)
+  // 1. Mo:Mo, Chowmein, Sekuwa & Chhoila
   {
     id: 'momo-chicken-steam',
     name: 'Chicken Steam Mo:Mo',
@@ -88,7 +88,7 @@ export const MENU_ITEMS: MenuItem[] = [
     priceDisplay: 'NPR 275',
     numericPrice: 275,
     dietary: 'non-veg',
-    description: 'Steamed chicken dumplings served with house tomato-timur achar (Printed Menu).',
+    description: 'Steamed chicken dumplings with house tomato-timur achar.',
     featuredOnHome: true,
   },
   {
@@ -99,7 +99,7 @@ export const MENU_ITEMS: MenuItem[] = [
     priceDisplay: 'NPR 300',
     numericPrice: 300,
     dietary: 'non-veg',
-    description: 'Pan-seared Kothy or crispy golden-fried chicken dumplings (Printed Menu).',
+    description: 'Pan-seared Kothy or crispy golden-fried chicken dumplings.',
     featuredOnHome: true,
   },
   {
@@ -110,7 +110,7 @@ export const MENU_ITEMS: MenuItem[] = [
     priceDisplay: 'NPR 350',
     numericPrice: 350,
     dietary: 'non-veg',
-    description: 'Steamed chicken dumplings served in rich sesame-timur jhol broth (Printed Menu).',
+    description: 'Steamed chicken dumplings in sesame-timur jhol broth.',
     featuredOnHome: true,
   },
   {
@@ -121,7 +121,7 @@ export const MENU_ITEMS: MenuItem[] = [
     priceDisplay: 'NPR 400',
     numericPrice: 400,
     dietary: 'non-veg',
-    description: 'Crispy chicken momos wok-tossed with capsicum, onion & spicy chili glaze (Printed Menu).',
+    description: 'Crispy chicken momos tossed with capsicum, onion & spicy chili glaze.',
   },
   {
     id: 'momo-veg-steam',
@@ -131,7 +131,7 @@ export const MENU_ITEMS: MenuItem[] = [
     priceDisplay: 'NPR 175',
     numericPrice: 175,
     dietary: 'veg',
-    description: 'Fresh vegetable dumplings steamed and served with house achar (Printed Menu).',
+    description: 'Fresh vegetable dumplings steamed and served with house achar.',
   },
   {
     id: 'momo-veg-kothy',
@@ -141,7 +141,7 @@ export const MENU_ITEMS: MenuItem[] = [
     priceDisplay: 'NPR 200',
     numericPrice: 200,
     dietary: 'veg',
-    description: 'Pan-seared or crispy fried vegetable dumplings (Printed Menu).',
+    description: 'Pan-seared or crispy fried vegetable dumplings.',
   },
   {
     id: 'momo-veg-jhol',
@@ -151,7 +151,7 @@ export const MENU_ITEMS: MenuItem[] = [
     priceDisplay: 'NPR 250',
     numericPrice: 250,
     dietary: 'veg',
-    description: 'Steamed vegetable dumplings in tangential Nepali jhol soup (Printed Menu).',
+    description: 'Steamed vegetable dumplings in Nepali jhol soup.',
   },
   {
     id: 'momo-veg-chilly',
@@ -161,7 +161,7 @@ export const MENU_ITEMS: MenuItem[] = [
     priceDisplay: 'NPR 300',
     numericPrice: 300,
     dietary: 'veg',
-    description: 'Crispy vegetable momos tossed in spicy onion-capsicum chili sauce (Printed Menu).',
+    description: 'Crispy vegetable momos tossed in spicy onion-capsicum chili sauce.',
   },
   {
     id: 'nep-mustang-momo',
@@ -171,7 +171,7 @@ export const MENU_ITEMS: MenuItem[] = [
     priceDisplay: 'NPR 350',
     numericPrice: 350,
     dietary: 'non-veg',
-    description: 'Pan-crisped momos tossed in spicy Mustang timur, garlic & red chili sauce.',
+    description: 'Pan-crisped momos tossed in spicy Mustang timur, garlic & chili sauce.',
     featuredOnHome: true,
     imageSlotKey: 'mustangMomoSekuwa',
   },
@@ -183,7 +183,7 @@ export const MENU_ITEMS: MenuItem[] = [
     priceDisplay: 'NPR 250',
     numericPrice: 250,
     dietary: 'veg',
-    description: 'Stir-fried soft noodles or wok-fried rice with julienne garden vegetables (Printed Menu).',
+    description: 'Stir-fried noodles or wok-fried rice with garden vegetables.',
   },
   {
     id: 'chowmein-chicken',
@@ -193,7 +193,7 @@ export const MENU_ITEMS: MenuItem[] = [
     priceDisplay: 'NPR 300',
     numericPrice: 300,
     dietary: 'non-veg',
-    description: 'Stir-fried noodles or fried rice with tender chicken strips & julienne vegetables (Printed Menu).',
+    description: 'Stir-fried noodles or fried rice with chicken strips & vegetables.',
   },
   {
     id: 'chowmein-mixed',
@@ -203,7 +203,7 @@ export const MENU_ITEMS: MenuItem[] = [
     priceDisplay: 'NPR 350',
     numericPrice: 350,
     dietary: 'non-veg',
-    description: 'Loaded house stir-fried noodles or fried rice with chicken, egg & vegetables (Printed Menu).',
+    description: 'Stir-fried noodles or fried rice with chicken, egg & vegetables.',
   },
   {
     id: 'nep-chicken-sekuwa',
@@ -449,7 +449,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Crisp golden salted potato fries with house dip.',
   },
 
-  // 4. Pizza From the Oven, Burgers & Pasta (Exact Printed Menu Card + Google Maps prices)
+  // 4. Pizza From the Oven, Burgers & Pasta
   {
     id: 'pizza-dream-garden-special',
     name: 'Dream Garden Special Pizza',
@@ -458,7 +458,7 @@ export const MENU_ITEMS: MenuItem[] = [
     priceDisplay: 'NPR 900',
     numericPrice: 900,
     dietary: 'non-veg',
-    description: 'Ham, sausage & bell peppers with fresh herbs, mozzarella cheese & tomato sauce (Printed Menu).',
+    description: 'Ham, sausage & bell peppers with fresh herbs, mozzarella cheese & tomato sauce.',
     featuredOnHome: true,
   },
   {
@@ -469,7 +469,7 @@ export const MENU_ITEMS: MenuItem[] = [
     priceDisplay: 'NPR 800',
     numericPrice: 800,
     dietary: 'non-veg',
-    description: 'Oven-baked pizza topped with sliced pepperoni and melted mozzarella cheese (Printed Menu).',
+    description: 'Oven-baked pizza topped with sliced pepperoni and melted mozzarella cheese.',
   },
   {
     id: 'pizza-smoked-chicken',
@@ -479,7 +479,7 @@ export const MENU_ITEMS: MenuItem[] = [
     priceDisplay: 'NPR 700',
     numericPrice: 700,
     dietary: 'non-veg',
-    description: 'Baked with smoked chicken breast, tomato kamikaze sauce, chilly flakes & mozzarella (Printed Menu).',
+    description: 'Baked with smoked chicken breast, tomato sauce, chilly flakes & mozzarella.',
   },
   {
     id: 'pizza-salami-sausage',
@@ -489,7 +489,7 @@ export const MENU_ITEMS: MenuItem[] = [
     priceDisplay: 'NPR 700',
     numericPrice: 700,
     dietary: 'non-veg',
-    description: 'Baked with chicken salami, sausage, fresh herbs, cheese & tomato sauce (Printed Menu).',
+    description: 'Baked with chicken salami, sausage, fresh herbs, cheese & tomato sauce.',
   },
   {
     id: 'pizza-margherita',
@@ -499,7 +499,7 @@ export const MENU_ITEMS: MenuItem[] = [
     priceDisplay: 'NPR 600',
     numericPrice: 600,
     dietary: 'veg',
-    description: 'Oven-baked with fresh basil, tomato sauce, and buffalo Margherita cheese (Printed Menu).',
+    description: 'Oven-baked with fresh basil, tomato sauce, and mozzarella cheese.',
   },
   {
     id: 'sandwich-garden-club',

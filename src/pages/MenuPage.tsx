@@ -8,7 +8,6 @@ import {
   ShortlistEntry,
 } from '../utils/menuLogic';
 import { PageId } from '../components/Navbar';
-import { DreamGardenWordmark } from '../components/DreamGardenLogo';
 
 interface MenuPageProps {
   shortlist: ShortlistEntry[];
@@ -57,44 +56,26 @@ export const MenuPage: React.FC<MenuPageProps> = ({
 
   return (
     <div className="bg-[#0D110E] pt-20 text-[#F4F7F4]">
-      {/* Compact Header */}
-      <section className="border-b border-[#243028] bg-[#111713] py-12 sm:py-16">
+      <section className="border-b border-[#243028] bg-[#111713] py-10 sm:py-14">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col justify-between gap-4 lg:flex-row lg:items-end">
+          <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
             <div>
-              <p className="text-xs font-bold tracking-[0.2em] text-[#44B649] uppercase">
-                Google Maps & Printed Menu · चपली भंगाल, बूढानीलकण्ठ
-              </p>
-              <h1 className="mt-2 font-display text-4xl font-bold sm:text-5xl">
-                <DreamGardenWordmark className="text-3xl sm:text-5xl" />
-                <span className="text-white"> · मेनु र दररेट</span>
+              <h1 className="font-display text-4xl font-bold text-white sm:text-5xl">
+                Our <span className="text-[#44B649]">Menu</span>
               </h1>
               <div className="mt-3 h-1 w-12 bg-[#44B649]" aria-hidden="true" />
-              <div className="mt-3 flex flex-wrap items-center gap-4 text-xs text-[#B4BCB6]">
-                <span>{BUSINESS_CONFIG.ratingsAndPricing.vatNotice}</span>
-                <span aria-hidden="true">·</span>
-                <span className="inline-flex items-center gap-1.5">
-                  <span className="inline-block h-2.5 w-2.5 rounded-full bg-[#44B649]" />
-                  <span>Veg (भेज)</span>
-                </span>
-                <span className="inline-flex items-center gap-1.5">
-                  <span className="inline-block h-2.5 w-2.5 rounded-full bg-[#E05A47]" />
-                  <span>Non-Veg (नन-भेज)</span>
-                </span>
-              </div>
             </div>
             <a
               href={BUSINESS_CONFIG.contact.telHref}
-              className="inline-flex items-center gap-2 rounded-full bg-[#44B649] px-6 py-3 font-mono-num text-xs font-bold tracking-wider text-white uppercase hover:bg-[#3CA341] whitespace-nowrap shrink-0 self-start lg:self-auto"
+              className="inline-flex items-center gap-2 rounded-full bg-[#44B649] px-6 py-3 font-mono-num text-xs font-bold tracking-wider text-white uppercase hover:bg-[#3CA341] whitespace-nowrap shrink-0 self-start sm:self-auto"
             >
               <Phone className="h-4 w-4" aria-hidden="true" />
-              <span>Order / Call: {BUSINESS_CONFIG.contact.phoneDisplay}</span>
+              <span>Call {BUSINESS_CONFIG.contact.phoneDisplay}</span>
             </a>
           </div>
         </div>
       </section>
 
-      {/* Streamlined Filter & 6-Category Bar */}
       <section className="border-b border-[#243028] bg-[#131915] py-5">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
@@ -111,7 +92,7 @@ export const MenuPage: React.FC<MenuPageProps> = ({
                 type="search"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search Momo, Chowmein, Sekuwa, Khana, Pizza, Tikka..."
+                placeholder="Search Momo, Chowmein, Sekuwa, Khana, Pizza..."
                 className="w-full rounded-full border border-[#2B382F] bg-[#0D110E] py-2.5 pr-4 pl-10 text-sm text-white placeholder-[#7A857E] focus:border-[#44B649] focus:outline-none"
               />
             </div>
@@ -125,8 +106,8 @@ export const MenuPage: React.FC<MenuPageProps> = ({
                 {(
                   [
                     ['all', 'All'],
-                    ['veg', 'Veg (भेज)'],
-                    ['non-veg', 'Non-Veg (नन-भेज)'],
+                    ['veg', 'Veg'],
+                    ['non-veg', 'Non-Veg'],
                   ] as const
                 ).map(([key, label]) => (
                   <button
@@ -155,12 +136,11 @@ export const MenuPage: React.FC<MenuPageProps> = ({
                 }`}
               >
                 <Wine className="h-3.5 w-3.5" aria-hidden="true" />
-                <span>{showAlcohol ? 'Hide Cocktails (18+)' : 'Cocktails (18+)'}</span>
+                <span>{showAlcohol ? 'Hide Cocktails' : 'Cocktails (18+)'}</span>
               </button>
             </div>
           </div>
 
-          {/* 6 Consolidated Category Filter Tabs */}
           <div
             role="tablist"
             aria-label="Menu Categories"
@@ -177,7 +157,7 @@ export const MenuPage: React.FC<MenuPageProps> = ({
                   : 'border-[#2B382F] bg-[#0D110E] text-[#C8D0CA] hover:border-[#44B649]'
               }`}
             >
-              All Menu
+              All
             </button>
             {visibleCategories.map((cat) => (
               <button
@@ -199,8 +179,7 @@ export const MenuPage: React.FC<MenuPageProps> = ({
         </div>
       </section>
 
-      {/* Clean Menu Grid + Quick Order Sidebar */}
-      <section className="bg-[#0D110E] py-12 sm:py-16">
+      <section className="bg-[#0D110E] py-10 sm:py-14">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-12">
             <div className="lg:col-span-8">
@@ -218,7 +197,7 @@ export const MenuPage: React.FC<MenuPageProps> = ({
                     }}
                     className="mt-4 rounded-full bg-[#44B649] px-5 py-2 text-xs font-bold text-white uppercase"
                   >
-                    Show All Dishes
+                    Show All
                   </button>
                 </div>
               ) : (
@@ -232,43 +211,23 @@ export const MenuPage: React.FC<MenuPageProps> = ({
                     return (
                       <div key={category.id} id={`cat-${category.id}`}>
                         <div className="border-b border-[#243028] pb-2.5">
-                          <div className="flex flex-wrap items-baseline justify-between gap-2">
-                            <h2 className="font-display text-2xl font-bold text-white sm:text-3xl">
-                              {category.title}
-                            </h2>
-                            <span className="text-sm font-medium text-[#44B649]" lang="ne">
-                              {category.nepaliTitle}
-                            </span>
-                          </div>
+                          <h2 className="font-display text-2xl font-bold text-white sm:text-3xl">
+                            {category.title}
+                          </h2>
                         </div>
 
                         <div className="mt-3.5 grid grid-cols-1 gap-3 sm:grid-cols-2">
                           {categoryItems.map((item) => {
                             const inShortlist = shortlist.find((s) => s.item.id === item.id);
-                            const isVeg = item.dietary === 'veg' || item.dietary === 'beverage';
                             return (
                               <div
                                 key={item.id}
                                 className="flex items-center justify-between gap-3 border border-[#243028] bg-[#131915] px-4 py-3.5 transition-colors hover:border-[#44B649]/50"
                               >
                                 <div className="min-w-0 flex-1">
-                                  <div className="flex flex-wrap items-center gap-1.5">
-                                    <span
-                                      className={`inline-block h-2 w-2 shrink-0 rounded-full ${
-                                        isVeg ? 'bg-[#44B649]' : 'bg-[#E05A47]'
-                                      }`}
-                                      title={isVeg ? 'Vegetarian / Beverage' : 'Non-Vegetarian'}
-                                      aria-label={isVeg ? 'Vegetarian' : 'Non-Vegetarian'}
-                                    />
-                                    <h3 className="font-display text-lg font-bold text-white">
-                                      {item.name}
-                                    </h3>
-                                    {item.nepaliLabel && (
-                                      <span className="text-xs font-medium text-[#44B649]" lang="ne">
-                                        · {item.nepaliLabel}
-                                      </span>
-                                    )}
-                                  </div>
+                                  <h3 className="font-display text-lg font-bold text-white">
+                                    {item.name}
+                                  </h3>
                                   <p className="mt-0.5 truncate text-xs text-[#9BA39E]">
                                     {item.description}
                                   </p>
@@ -323,16 +282,15 @@ export const MenuPage: React.FC<MenuPageProps> = ({
               )}
             </div>
 
-            {/* Sticky Order & Table Inquiry Box */}
             <aside className="lg:col-span-4">
               <div className="sticky top-24 border border-[#243028] bg-[#131915] p-5">
                 <h2 className="font-display text-2xl font-bold text-white">
-                  Your Selected Dishes · <span className="text-[#44B649]" lang="ne">अर्डर लिस्ट</span>
+                  Selected Dishes
                 </h2>
 
                 {shortlist.length === 0 ? (
                   <p className="my-5 border border-dashed border-[#2B382F] bg-[#0D110E] p-4 text-center text-xs text-[#9BA39E]">
-                    Tap &ldquo;+ Add&rdquo; on any dish to calculate your total in NPR.
+                    Tap &ldquo;+ Add&rdquo; on any dish to calculate your total.
                   </p>
                 ) : (
                   <div className="my-4 space-y-2.5 border-y border-[#243028] py-3">
@@ -392,7 +350,7 @@ export const MenuPage: React.FC<MenuPageProps> = ({
                     }}
                     className="flex w-full items-center justify-center rounded-full border border-[#44B649] bg-[#0D110E] px-4 py-2.5 text-xs font-bold text-white uppercase hover:bg-[#18201B]"
                   >
-                    Book Table with These Dishes
+                    Book Table with Order
                   </button>
                   {shortlist.length > 0 && (
                     <button

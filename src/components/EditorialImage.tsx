@@ -53,17 +53,8 @@ export const EditorialImage: React.FC<EditorialImageProps> = ({
       />
 
       {showCaptionOverlay && (
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#090C0A]/95 via-[#090C0A]/55 to-transparent p-5 opacity-95 transition-opacity duration-200">
-          <div className="mb-1.5 flex items-center gap-2">
-            <span className="h-[2.5px] w-6 bg-[#44B649]" />
-            <span className="text-[11px] font-semibold tracking-wider text-[#44B649] uppercase">
-              {asset.sourceLabel}
-            </span>
-          </div>
-          <p className="text-xs tracking-wide text-[#D2DAD4]" lang="ne">
-            {asset.nepaliTitle}
-          </p>
-          <p className="mt-0.5 font-display text-xl font-semibold text-white">
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#090C0A]/90 via-[#090C0A]/45 to-transparent p-4">
+          <p className="font-display text-lg font-bold text-white sm:text-xl">
             {asset.title}
           </p>
         </div>
