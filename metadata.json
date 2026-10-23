@@ -1,0 +1,6 @@
+{
+  "name": "Dream Garden Resort — Budhanilkantha",
+  "description": "A serene garden restaurant and family dining destination in Budhanilkantha, Kathmandu, Nepal. Explore our complete menu, lush outdoor seating, and gathering spaces.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
